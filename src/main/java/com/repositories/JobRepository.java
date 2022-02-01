@@ -11,4 +11,5 @@ public interface JobRepository extends JpaRepository<Job, Integer> {
     Job findByName(String name);
 
     List<Job> findAllByName(String name);
+
 }

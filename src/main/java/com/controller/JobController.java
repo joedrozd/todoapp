@@ -2,8 +2,6 @@ package com.controller;
 
 import com.entity.Job;
 import com.service.JobService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +12,11 @@ import java.util.List;
 public class JobController {
     @Autowired
     private JobService JobService;
-    private final Logger logger = LoggerFactory.getLogger(JobController.class);// ◔_◔ shh
     //POST
     @PostMapping("/addJob")
     public Job addJob(@RequestBody Job Job) {
-        logger.info("Job object {}", Job.toString());
-        return JobService.saveJob(Job);
+        com.entity.Job adder = Job;
+        return JobService.saveJob(adder);
     }
 
     @PostMapping("/addJobs")

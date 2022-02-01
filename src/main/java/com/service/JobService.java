@@ -5,17 +5,21 @@ import com.repositories.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class JobService {
     @Autowired
     private JobRepository JobRepository;
+    public List<Job> jobList = new ArrayList<>();
+    
 
     //POST
-    public Job saveJob(Job Job) {
-        System.out.println(Job.toString());
-        return JobRepository.save(Job);
+    public Job saveJob(Job adder) {
+    	this.jobList.add(adder);//Adding these methods now to all 
+        System.out.println(adder.toString());
+        return this.jobList.get(this.jobList.size() - 1);
     }
     
     //Optional!
