@@ -16,10 +16,9 @@ public class JobService {
     
 
     //POST
-    public Job saveJob(Job adder) {
-    	this.jobList.add(adder);//Adding these methods now to all 
-        System.out.println(adder.toString());
-        return this.jobList.get(this.jobList.size() - 1);
+    public Job saveJob(Job Job) {
+        System.out.println(Job.toString());
+        return this.JobRepository.save(Job);
     }
     
     //Optional!

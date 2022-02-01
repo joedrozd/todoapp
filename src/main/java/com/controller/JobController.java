@@ -15,8 +15,7 @@ public class JobController {
     //POST
     @PostMapping("/addJob")
     public Job addJob(@RequestBody Job Job) {
-        com.entity.Job adder = Job;
-        return JobService.saveJob(adder);
+    	return JobService.saveJob(Job);
     }
 
     @PostMapping("/addJobs")
