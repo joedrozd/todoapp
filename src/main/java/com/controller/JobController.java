@@ -14,7 +14,7 @@ import java.util.List;
 public class JobController {
     @Autowired
     private JobService JobService;
-    private final Logger logger = LoggerFactory.getLogger(JobController.class);
+    private final Logger logger = LoggerFactory.getLogger(JobController.class);// ◔_◔ shh
     //POST
     @PostMapping("/addJob")
     public Job addJob(@RequestBody Job Job) {
