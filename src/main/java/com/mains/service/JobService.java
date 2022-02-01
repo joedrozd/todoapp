@@ -1,7 +1,8 @@
-package com.service;
+package com.mains.service;
 
-import com.entity.Job;
-import com.repositories.JobRepository;
+import com.mains.entity.Job;
+import com.mains.repositories.JobRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +10,15 @@ import java.util.List;
 
 @Service
 public class JobService {
-    @Autowired
+    
     private JobRepository JobRepository;
     
-
+    @Autowired
+    public JobService(JobRepository JobRepository) {
+		this.JobRepository = JobRepository;
+	}//constructor injection is used to avoid null pointer exceptions and allows us to create immutable objects. It also means all dependencies are available when compiling.
+    // Connects Job service to specific repository or db.
+    
     //POST
     public Job saveJob(Job Job) {
         System.out.println(Job.toString());
@@ -48,7 +54,7 @@ public class JobService {
     //DELETE
     public String deleteJob(int id) {
         JobRepository.deleteById(id);
-        return id + " id -> Job removed/completed";
+        return id + " Job removed by ID";
     }
 
 }

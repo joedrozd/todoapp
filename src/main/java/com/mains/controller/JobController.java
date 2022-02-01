@@ -1,7 +1,8 @@
-package com.controller;
+package com.mains.controller;
 
-import com.entity.Job;
-import com.service.JobService;
+import com.mains.entity.Job;
+import com.mains.service.JobService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

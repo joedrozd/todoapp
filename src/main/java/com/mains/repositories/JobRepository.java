@@ -1,8 +1,9 @@
-package com.repositories;
+package com.mains.repositories;
 
-import com.entity.Job;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.mains.entity.Job;
 
 import java.util.List;
 
