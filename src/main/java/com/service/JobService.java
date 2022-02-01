@@ -19,7 +19,7 @@ public class JobService {
         return this.JobRepository.save(Job);
     }
     
-    //Optional!
+    //SAVEALL
     public List<Job> saveJobs(List<Job> Jobs) {
         return JobRepository.saveAll(Jobs);
     }
