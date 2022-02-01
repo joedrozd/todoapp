@@ -21,7 +21,8 @@ public class Job {
     private String name;
     private String description;
     private String status;
-
+    private int hours;
+    
 	public String getName() {
 		return name;
 	}
@@ -48,6 +49,14 @@ public class Job {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public int getHours() {
+		return hours;
+	}
+
+	public void setHours(int hours) {
+		this.hours = hours;
 	}
 
 }

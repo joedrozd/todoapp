@@ -48,6 +48,7 @@ public class JobService {
         existing_Job.setName(Job.getName());
         existing_Job.setDescription(Job.getDescription());
         existing_Job.setStatus(Job.getStatus());
+        existing_Job.setHours((Job).getHours());
         return JobRepository.save(existing_Job);
     }
 
