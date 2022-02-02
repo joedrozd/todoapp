@@ -37,10 +37,15 @@ public class JobController {
         return JobService.getJobByName(name);
     }
     @GetMapping("/JobHours")
-    public String findJobHours(String jobHours) {
-    	String jobHours2 = JobService.getJobHours(jobHours);
+    public int findJobHours(int jobHours) {
+    	int jobHours2 = JobService.getJobHours(jobHours);
     	System.out.println(jobHours2);
+    	if (jobHours2 == 0) {
+    		jobHours2 = 1;
+    		return jobHours2;
+    	} else {
         return jobHours2;
+    	}
     }
    
     //PUT

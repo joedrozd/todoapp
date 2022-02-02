@@ -40,11 +40,12 @@ public class JobService {
         return JobRepository.findByName(name);
     }
     
-    public String getJobHours(String jobHours) {
+    public int getJobHours(int jobHours) {
     	List<Job> hoursList = getJobs();
-    	Job jobHoursInstance = hoursList.get(0);
-    	int jobHoursNo = jobHoursInstance.getHours();
-    	jobHours = "You have " + jobHoursNo + "left to go!";
+    	for (Job Job: hoursList) {
+    		int jobHoursNo = Job.getHours();
+    		jobHours = jobHoursNo++;
+    	}
     	return jobHours; 
         }
 	//PUT
