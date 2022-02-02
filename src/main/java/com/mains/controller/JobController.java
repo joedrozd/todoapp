@@ -37,8 +37,8 @@ public class JobController {
         return JobService.getJobByName(name);
     }
     @GetMapping("/JobHours")
-    public String findJobHours(@PathVariable String jobHours2) {
-    	jobHours2 = JobService.getJobHours(jobHours);
+    public String findJobHours(String jobHours) {
+    	String jobHours2 = JobService.getJobHours(jobHours);
     	System.out.println(jobHours2);
         return jobHours2;
     }
