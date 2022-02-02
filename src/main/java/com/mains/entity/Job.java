@@ -55,8 +55,8 @@ public class Job {
 		return hours;
 	}
 
-	public void setHours(int hours) {
-		this.hours = hours;
+	public int setHours(int hours) {
+		return this.hours = hours;
 	}
 
 }

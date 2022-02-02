@@ -2,7 +2,6 @@ package com.mains.service;
 
 import com.mains.entity.Job;
 import com.mains.repositories.JobRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,15 +39,20 @@ public class JobService {
     public Job getJobByName(String name) {
         return JobRepository.findByName(name);
     }
-
-    //PUT
+    
+    public int getJobHours(int jobHours) {
+    	List<Job> hoursList = getJobs();
+    	jobHours = hoursList.size() * 3;
+        return jobHours; 
+        }
+	//PUT
     public Job updateJob(Job Job) {
         System.out.println("updates");
         Job existing_Job = JobRepository.findById(Job.getId()).orElse(null);
         existing_Job.setName(Job.getName());
         existing_Job.setDescription(Job.getDescription());
         existing_Job.setStatus(Job.getStatus());
-        existing_Job.setHours((Job).getHours());
+        existing_Job.setHours(Job.getHours());
         return JobRepository.save(existing_Job);
     }
 
@@ -57,5 +61,6 @@ public class JobService {
         JobRepository.deleteById(id);
         return id + " Job removed by ID";
     }
+
 
 }

@@ -36,7 +36,11 @@ public class JobController {
     public Job findJobByName(@PathVariable String name) {
         return JobService.getJobByName(name);
     }
-
+    @GetMapping("/JobHours")
+    public int findJobHours(@PathVariable int jobHours) {
+        return JobService.getJobHours(jobHours);
+    }
+   
     //PUT
     @PutMapping("/update")
     public Job updateJob(@RequestBody Job Job)
