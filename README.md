@@ -16,8 +16,10 @@ I think the overall structure and building the base went quite well. I am yet to
 Possible improvements?
 --
 I discuss what could be added to some of the specific code in my Java source files. 
---
+
 The main improvements are around actually utilizing the previously discussed @pathvariable for finding specific jobs in the JobsHours method. Another is adding some more intricate and specified Custom exceptions. However, if things go well or appear within the testing I will add a few more custom exceptions. 
+
+I would like to work on the headers part of postman and require and API key to access the API. 
 
 Screenshots 
 --
