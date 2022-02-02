@@ -38,8 +38,14 @@ public class JobController {
     }
     @GetMapping("/JobHours")
     public String findJobHours(String jobHours2) {
-		jobHours2 = JobService.getJobHours(jobHours2);
+		try {jobHours2 = JobService.getJobHours(jobHours2);
     	System.out.println(jobHours2);
+		} catch (Exception e) {
+			String forget = "Did you forget to add a job?";
+			System.out.println(forget);
+			System.out.println(e);
+			return forget;
+		}
         return jobHours2;
     }
    
