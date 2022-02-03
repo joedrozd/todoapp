@@ -1,6 +1,8 @@
 package com.mains.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.mains.entity.Job;
@@ -14,19 +16,22 @@ public class JobController {
     private JobService JobService;
     //POST controller - single job
     @PostMapping("/addJob")
-    public Job addJob(@RequestBody Job Job) {
-    	return JobService.saveJob(Job);
+    public ResponseEntity<Job> addJob(@RequestBody Job Job) {
+        ResponseEntity<Job> jobRes = ResponseEntity.ok(JobService.saveJob(Job));
+    	return jobRes;
     }
     //POST controller - multiple jobs 
     @PostMapping("/addJobs")
-    public List<Job> addJobs(@RequestBody List<Job> Jobs) {
-        return JobService.saveJobs(Jobs);
+    public ResponseEntity<List<Job>> addJobs(@RequestBody List<Job> Jobs) {
+        ResponseEntity<List<Job>> jobList = ResponseEntity.ok(JobService.saveJobs(Jobs));
+        return jobList;
     }
 
     //GET - get all jobs controller
     @GetMapping("/Jobs")
-    public List<Job> getAllJobs() {
-        return JobService.getJobs();
+    public ResponseEntity<List<Job>> getAllJobs() {
+    	ResponseEntity<List<Job>> jobList = ResponseEntity.ok(JobService.getJobs());
+        return jobList;
     }
     //GET get job by id getter - id declared in path
     @GetMapping("/JobById/{id}")
@@ -66,8 +71,10 @@ public class JobController {
 
     //DELETE - simple delete controller based on id sent in path
     @DeleteMapping("/delete/{id}")
-    public String deleteJob(@PathVariable int id) {
-        return JobService.deleteJob(id);
+    @ResponseBody
+    public ResponseEntity<Job> deleteJob(@PathVariable int id) throws Exception {
+    	JobService.deleteJob(id);
+		return new ResponseEntity<Job>(HttpStatus.ACCEPTED);
     }
 
 }

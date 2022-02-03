@@ -1,6 +1,7 @@
 package com.mains.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.mains.entity.Job;
@@ -21,8 +22,7 @@ public class JobService {
     
     //POST - saves 1 job and prints the object - i need to ovverride tostring at some point.
     public Job saveJob(Job Job) {
-        System.out.println(Job.toString());
-        return this.JobRepository.save(Job);
+        return JobRepository.save(Job);
     }
     
     //SAVEALL - save a list of jobs to the repository
@@ -71,9 +71,9 @@ public class JobService {
     }
 
     //DELETE - deleted job by id and returns which id was deleted. 
-    public String deleteJob(int id) {
+    public void deleteJob(int id) {
         JobRepository.deleteById(id);
-        return id + " Job removed by ID";
+        
     }
 
 

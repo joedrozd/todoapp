@@ -1,8 +1,7 @@
-package com.test.mains.service;
+package com.mains.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -33,7 +32,7 @@ class JobServiceUnitTest {
 
 	private List<Job> jobs;
 	
-	@BeforeEach // junit5 (jupiter) annotation to run this method before every test
+	@BeforeEach
 	public void init() {
 		jobs = new ArrayList<>();
 		jobs.addAll(List.of(new Job(1,"Job1", "Dance", "Not Done", 1), 
@@ -43,7 +42,17 @@ class JobServiceUnitTest {
 	@Test
 	public void saveJobTest() {
 		Job Job4 = new Job(4,"Job4", "Party", "Not Done", 123);
-		    when(JobService.saveJob(Job4)).thenReturn(Job4);
+	    when(JobService.saveJob(Job4)).thenReturn(Job4);
+	}
+	
+	@Test
+	public void saveJobsTest() {
+		Job Job4 = new Job(4,"Job4", "Party", "Not Done", 123);
+		Job Job5 = new Job(5,"Job5", "Party3", "Not Done", 123);
+		final List<Job> jobs2 = new ArrayList<>();
+		jobs2.add(Job4);
+		jobs2.add(Job5);
+	    when(JobService.saveJobs(jobs2)).thenReturn(jobs2);
 	}
 	
 	@Test
