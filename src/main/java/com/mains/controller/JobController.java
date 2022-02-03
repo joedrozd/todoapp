@@ -1,10 +1,10 @@
 package com.mains.controller;
 
-import com.mains.entity.Job;
-import com.mains.service.JobService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.mains.entity.Job;
+import com.mains.service.JobService;
 
 import java.util.List;
 

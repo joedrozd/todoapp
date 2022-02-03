@@ -1,9 +1,10 @@
 package com.mains.service;
 
-import com.mains.entity.Job;
-import com.mains.repositories.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.mains.entity.Job;
+import com.mains.repositories.JobRepository;
 
 import java.util.List;
 

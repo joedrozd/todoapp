@@ -31,6 +31,14 @@ public class Job {
 	public String getName() {
 		return name;
 	}
+	// constructor job
+	public Job(int id, String name, String description, String status, int hours) {
+		this.id = id; 
+		this.description = description;
+		this.name = name; 
+		this.status = status;
+		this.hours = hours;
+	}
 
 	public void setName(String name) {
 		this.name = name;
