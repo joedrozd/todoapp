@@ -25,6 +25,11 @@ Testing
 --
 I really enjoyed testing my app and managed to work my way through every different method and postman request apart from my feature branch. This meant I reached 77%, a little short of the 80% asked for but I'm ok with that. The SystemIntegration tests are not working unless ran separately but I think that is normal and I haven't fully configured the tests to start up independantly each time.
 
+HSSQL
+--
+
+I broke the MySQL on my personal pc by forgetting my password then trying to fix it. I used the HSSQL database as I initally (wrongly) thought this was the h2 database. To run the files outside of JAVA might require some config lol. 
+
 Screenshots 
 --
 ![FinalScreenshots](https://user-images.githubusercontent.com/89488828/152629814-2a07545e-f553-4411-ab9d-6bd483f06216.png)
