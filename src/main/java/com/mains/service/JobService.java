@@ -1,13 +1,13 @@
 package com.mains.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.mains.entity.Job;
 import com.mains.repositories.JobRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JobService {
@@ -37,8 +37,8 @@ public class JobService {
     // getter to find all jobs - useful to test if app is working 
     
     // gets jobs by ID and returns null if id not found.
-    public Job getJobById(int id) {
-        return JobRepository.findById(id).orElse(null);
+    public Optional<Job> getJobById(int id) {
+        return Optional.ofNullable(JobRepository.findById(id).orElse(null));
     }
     
     
@@ -73,7 +73,6 @@ public class JobService {
     //DELETE - deleted job by id and returns which id was deleted. 
     public void deleteJob(int id) {
         JobRepository.deleteById(id);
-        
     }
 
 

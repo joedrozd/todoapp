@@ -9,6 +9,7 @@ import com.mains.entity.Job;
 import com.mains.service.JobService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class JobController {
@@ -26,7 +27,9 @@ public class JobController {
         ResponseEntity<List<Job>> jobList = ResponseEntity.ok(JobService.saveJobs(Jobs));
         return jobList;
     }
-
+    //After starting the testing I realised the response entity is much easier to test with
+    // This is then where I have started working through the controller slowly changing over to responseentitys 
+    // surrounding the type declaration.
     //GET - get all jobs controller
     @GetMapping("/Jobs")
     public ResponseEntity<List<Job>> getAllJobs() {
@@ -35,7 +38,7 @@ public class JobController {
     }
     //GET get job by id getter - id declared in path
     @GetMapping("/JobById/{id}")
-    public Job findJobById(@PathVariable int id) {
+    public Optional<Job> findJobById(@PathVariable int id) {
         return JobService.getJobById(id);
     }
   //GET get job by name getter - name declared in path

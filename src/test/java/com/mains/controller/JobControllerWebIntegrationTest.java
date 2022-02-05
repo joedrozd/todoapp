@@ -42,15 +42,27 @@ class JobControllerWebIntegrationTest {
 	}
 
 	@Test
-	public void addJobdTest() {
+	public void addJobTest() {
 		Job Job4 = new Job(4,"Job4", "Party", "Not Done", 123);
-		ResponseEntity<Job> expected = new ResponseEntity<Job>(Job4, HttpStatus.CREATED);
+		ResponseEntity<Job> expected = new ResponseEntity<Job>(HttpStatus.OK);
 		ResponseEntity<Job> actual = JobController.addJob(Job4);
 		assertEquals(expected, actual); // junit assertion
 		
 		verify(JobService).saveJob(Job4);
 	}
-	
+	@Test
+	public void addJobsTest() {
+		Job Job4 = new Job(4,"Job4", "Party", "Not Done", 123);
+		Job Job5 = new Job(5,"Job5", "Party3", "Not Done", 123);
+		final List<Job> jobs2 = new ArrayList<>();
+		jobs2.add(Job4);
+		jobs2.add(Job5);
+		ResponseEntity<List<Job>> expected = new ResponseEntity<List<Job>>(HttpStatus.OK);
+		ResponseEntity<List<Job>> actual = JobController.addJobs(jobs2);
+		assertEquals(expected, actual); // junit assertion
+		
+		verify(JobService).saveJobs(jobs);
+	}
 	
 	@Test
 	void testDeleteJob() throws Exception {
