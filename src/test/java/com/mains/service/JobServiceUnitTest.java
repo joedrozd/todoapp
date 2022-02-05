@@ -46,6 +46,7 @@ class JobServiceUnitTest {
 	public void saveJobTest() {
 		Job Job4 = new Job(4,"Job4", "Party", "Not Done", 123);
 	    when(JobService.saveJob(Job4)).thenReturn(Job4);
+		assertThat(JobService.saveJob(Job4)).isEqualTo(Job4);
 	}
 	
 	@Test
@@ -56,6 +57,7 @@ class JobServiceUnitTest {
 		jobs2.add(Job4);
 		jobs2.add(Job5);
 	    when(JobService.saveJobs(jobs2)).thenReturn(jobs2);
+		assertThat(JobService.saveJobs(jobs2)).isEqualTo(jobs2);
 	}
 	
 	@Test
