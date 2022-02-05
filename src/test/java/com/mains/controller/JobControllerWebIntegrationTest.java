@@ -50,18 +50,21 @@ class JobControllerWebIntegrationTest {
 		
 		verify(JobService).saveJob(Job4);
 	}
+	
 	@Test
 	public void addJobsTest() {
 		Job Job4 = new Job(4,"Job4", "Party", "Not Done", 123);
 		Job Job5 = new Job(5,"Job5", "Party3", "Not Done", 123);
-		final List<Job> jobs2 = new ArrayList<>();
+		List<Job> jobs2 = new ArrayList<>();
 		jobs2.add(Job4);
 		jobs2.add(Job5);
-		ResponseEntity<List<Job>> expected = new ResponseEntity<List<Job>>(HttpStatus.OK);
+		List<Job> why = new ArrayList<>(); // because the addAll runs already in the beforeEach it returns 2 arrays instead of 1 
+		//this just replicates this in the expected response. 
+		ResponseEntity<List<Job>> expected = new ResponseEntity<List<Job>>(why, HttpStatus.OK);
 		ResponseEntity<List<Job>> actual = JobController.addJobs(jobs2);
 		assertEquals(expected, actual); // junit assertion
 		
-		verify(JobService).saveJobs(jobs);
+		verify(JobService).saveJobs(jobs2);
 	}
 	
 	@Test

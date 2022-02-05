@@ -83,4 +83,12 @@ class JobServiceUnitTest {
 		assertThat(JobService.getJobById(find)).isEqualTo(job1);
 		verify(JobRepository).findById(find);
 	}
+	@Test
+	public void deleteUserTest() {
+		Job job1 = new Job(1,"Job1", "Dance", "Not Done", 1);
+		int id = job1.getId();
+		JobService.deleteJob(id);
+		verify(JobRepository).deleteById(id);
+		
+	}
 }

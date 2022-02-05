@@ -37,12 +37,12 @@ public class JobController {
         return jobList;
     }
     //GET get job by id getter - id declared in path
-    @GetMapping("/JobById/{id}")
+    @GetMapping("/getJobById/{id}")
     public Optional<Job> findJobById(@PathVariable int id) {
         return JobService.getJobById(id);
     }
   //GET get job by name getter - name declared in path
-    @GetMapping("/JobByName/{name}")
+    @GetMapping("/getJobByName/{name}")
     public Job findJobByName(@PathVariable String name) {
         return JobService.getJobByName(name);
     }
@@ -56,7 +56,6 @@ public class JobController {
     	System.out.println(jobHours2);
 		} catch (Exception e) {
 			String forget = "Did you forget to add a job?";
-			System.out.println(forget);
 			System.out.println(e);
 			return forget;
 		}
@@ -64,7 +63,7 @@ public class JobController {
     }
    
     //PUT -- suimple update controller
-    @PutMapping("/update")
+    @PutMapping("/updateJob/{id}")
     public Job updateJob(@RequestBody Job Job)
     {
         System.out.println("UPDATED");
