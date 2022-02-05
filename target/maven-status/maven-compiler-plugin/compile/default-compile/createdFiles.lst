@@ -1,0 +1,5 @@
+com\mains\Application.class
+com\mains\controller\JobController.class
+com\mains\repositories\JobRepository.class
+com\mains\service\JobService.class
+com\mains\entity\Job.class
